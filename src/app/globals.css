@@ -1,0 +1,453 @@
+@import "tailwindcss";
+
+/* ============================================================================
+   CSS VARIABLES - DEFINED FIRST (Light Mode)
+   These are the actual design token values that theme references
+   ============================================================================ */
+
+:root {
+  /* Base semantic colors */
+  --background: oklch(99.11% 0 0);
+  --foreground: oklch(20.46% 0 0);
+  --card: oklch(97.91% 0 0);
+  --card-foreground: oklch(20.46% 0 0);
+  --wrapper: oklch(1 0 0);
+  --popover: oklch(99.11% 0 0);
+  --popover-foreground: oklch(20.46% 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.17 0.012 242.529);
+  --destructive: oklch(0.652 0.167 17.173);
+  --destructive-foreground: oklch(1 0 0);
+  --input: oklch(0.939 0.005 247.879);
+
+  /* Primary base color */
+  --primary: oklch(0.718 0.165 159.015);
+  --primary-foreground: oklch(0.17 0.012 242.529);
+
+  /* Primary color scale (50-950) – explicit */
+  --color-primary-50:  oklch(0.985 0.015 159.015);
+  --color-primary-100: oklch(0.955 0.030 159.015);
+  --color-primary-200: oklch(0.915 0.050 159.015);
+  --color-primary-300: oklch(0.865 0.080 159.015);
+  --color-primary-400: oklch(0.790 0.120 159.015);
+  --color-primary-500: oklch(0.718 0.165 159.015);
+  --color-primary-600: oklch(0.655 0.170 159.015);
+  --color-primary-700: oklch(0.540 0.160 159.015);
+  --color-primary-800: oklch(0.430 0.140 159.015);
+  --color-primary-900: oklch(0.350 0.110 159.015);
+  --color-primary-950: oklch(0.275 0.080 159.015);
+
+  /* Secondary base color */
+  --secondary: oklch(0.844 0.09 230.937);
+  --secondary-foreground: oklch(0.17 0.012 242.529);
+
+  /* Secondary color scale (50-950) – explicit values */
+  --color-secondary-50:  oklch(0.985 0.015 242.68);
+  --color-secondary-100: oklch(0.955 0.030 242.68);
+  --color-secondary-200: oklch(0.915 0.055 242.68);
+  --color-secondary-300: oklch(0.865 0.080 242.68);
+  --color-secondary-400: oklch(0.800 0.110 242.68);
+  --color-secondary-500: oklch(0.7098 0.1363 242.68);
+  --color-secondary-600: oklch(0.620 0.140 242.68);
+  --color-secondary-700: oklch(0.520 0.135 242.68);
+  --color-secondary-800: oklch(0.420 0.115 242.68);
+  --color-secondary-900: oklch(0.340 0.090 242.68);
+  --color-secondary-950: oklch(0.265 0.070 242.68);
+
+  /* Accent base color */
+  --accent: oklch(0.75 0.15 280);
+  --accent-foreground: oklch(0.17 0.012 242.529);
+
+  /* Accent color scale (50-950) – explicit values */
+  --color-accent-50:  oklch(0.985 0.015 285.01);
+  --color-accent-100: oklch(0.955 0.030 285.01);
+  --color-accent-200: oklch(0.915 0.055 285.01);
+  --color-accent-300: oklch(0.865 0.080 285.01);
+  --color-accent-400: oklch(0.800 0.105 285.01);
+  --color-accent-500: oklch(0.727 0.1234 285.01);
+  --color-accent-600: oklch(0.640 0.132 285.01);
+  --color-accent-700: oklch(0.540 0.128 285.01);
+  --color-accent-800: oklch(0.430 0.115 285.01);
+  --color-accent-900: oklch(0.340 0.095 285.01);
+  --color-accent-950: oklch(0.265 0.075 285.01);
+
+  /* Neutral color scale (hardcoded - light mode) */
+  --color-neutral-50: oklch(99.11% 0 0);
+  --color-neutral-100: oklch(97.91% 0 0);
+  --color-neutral-200: oklch(96.42% 0 0);
+  --color-neutral-300: oklch(94.61% 0 0);
+  --color-neutral-400: oklch(93.1% 0 0);
+  --color-neutral-500: oklch(91.28% 0 0);
+  --color-neutral-600: oklch(89.14% 0 0);
+  --color-neutral-700: oklch(82.97% 0 0);
+  --color-neutral-800: oklch(65% 0 0);
+  --color-neutral-900: oklch(61.67% 0 0);
+  --color-neutral-950: oklch(54.17% 0 0);
+  --color-neutral-1000: oklch(20.46% 0 0);
+
+  /* Functional color mappings */
+  --border: var(--color-neutral-300);
+  --ring: var(--primary);
+  --text-primary: var(--color-neutral-200);
+  --text-quaternary: var(--color-neutral-1000);
+
+  /* Chart colors */
+  --chart-1: var(--primary);
+  --chart-2: var(--secondary);
+  --chart-3: oklch(0.727 0.123 285.014);
+  --chart-4: oklch(0.818 0.139 334.347);
+  --chart-5: oklch(0.93 0.1027 93.33);
+
+  /* Sidebar & UI variants */
+  --sidebar: oklch(0.941 0.084 92.785);
+  --sidebar-foreground: oklch(0.17 0.012 242.529);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: oklch(0.17 0.012 242.529);
+  --sidebar-accent: var(--secondary);
+  --sidebar-accent-foreground: oklch(0.17 0.012 242.529);
+  --sidebar-border: var(--input);
+  --sidebar-ring: var(--primary);
+
+  /* Ring variants */
+  --ring-strong: oklch(0.7 0.165 159.015);
+  --ring-subtle: oklch(0.82 0.055 159.015);
+
+  /* Button styling */
+  --btn-primary-bg: var(--primary);
+  --btn-primary-fg: var(--primary-foreground);
+  --btn-primary-bg-hover: oklch(from var(--primary) calc(l + 0.02) c h);
+  --btn-primary-bg-pressed: oklch(from var(--primary) calc(l + 0.02) c h);
+
+  /* Chip styling */
+  --chip-bg: oklch(0.975 0.005 258.325);
+  --chip-fg: oklch(0.17 0.012 242.529);
+  --chip-bg-hover: oklch(0.96 0.005 258.325);
+
+  /* Shadow & effects */
+  --shadow-x: 0px;
+  --shadow-y: 3px;
+  --shadow-blur: 6px;
+  --shadow-spread: 0px;
+  --shadow-opacity: 0.12;
+  --shadow-color: oklch(from #000000 l c h);
+
+  /* Glow effects */
+  --primary-glow-subtle: rgba(0, 194, 125, 0.1);
+  --primary-glow-light: rgba(0, 194, 125, 0.2);
+  --primary-glow-medium: rgba(0, 194, 125, 0.3);
+  --primary-glow-strong: rgba(0, 194, 125, 0.6);
+  --secondary-glow-light: rgba(141, 215, 252, 0.13);
+  --secondary-glow-medium: rgba(141, 215, 252, 0.2);
+  --secondary-glow-strong: rgba(141, 215, 252, 0.33);
+  --chart-3-glow-light: rgba(170, 120, 215, 0.3);
+  --chart-3-glow-medium: rgba(170, 120, 215, 0.45);
+  --chart-3-glow-strong: rgba(170, 120, 215, 0.89);
+  --chart-4-glow-light: rgba(230, 140, 185, 0.21);
+  --chart-4-glow-medium: rgba(230, 140, 185, 0.31);
+  --chart-4-glow-strong: rgba(230, 140, 185, 0.62);
+  --chart-5-glow-light: rgba(240, 205, 130, 0.13);
+  --chart-5-glow-medium: rgba(240, 205, 130, 0.19);
+  --chart-5-glow-strong: rgba(240, 205, 130, 0.38);
+
+  /* Suggestion/tooltip styling */
+  --suggestion-bg: oklch(from #ffffff l c h);
+  --suggestion-text: oklch(from #374151 l c h);
+  --suggestion-border: oklch(from #e5e7eb l c h);
+  --suggestion-shadow:
+    0 4px 6px -1px var(--primary-glow-subtle),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --suggestion-shadow-hover:
+    0 10px 20px -5px var(--primary-glow-light),
+    0 4px 10px -3px var(--primary-glow-subtle), 0 0 0 1px var(--primary-glow-subtle);
+  --suggestion-border-hover: var(--primary);
+  --suggestion-text-hover: var(--primary);
+
+  /* Tab container styling */
+  --tab-container-border: var(--primary);
+  --tab-container-shadow:
+    0 4px 8px -2px var(--primary-glow-subtle), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+  --tab-container-shadow-hover:
+    0 12px 30px -5px var(--primary-glow-medium),
+    0 6px 15px -3px var(--primary-glow-light), 0 0 0 2px var(--primary-glow-light);
+
+  /* Button shadows */
+  --btn-primary-shadow:
+    0 2px 6px var(--primary-glow-medium), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  --btn-primary-shadow-hover:
+    0 4px 10px var(--primary-glow-strong), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+
+  /* Radius values */
+  --radius: 0.625rem;
+}
+
+/* Dark mode overrides */
+.dark {
+  /* Base semantic colors - inverted for dark mode */
+  --background: oklch(20.02% 0 0);
+  --foreground: oklch(94.61% 0 0);
+  --card: oklch(22.64% 0 0);
+  --card-foreground: oklch(94.61% 0 0);
+  --wrapper: oklch(0.205 0.01 248);
+  --popover: oklch(20.02% 0 0);
+  --popover-foreground: oklch(94.61% 0 0);
+  --muted: oklch(0.268 0.021 248.622);
+  --muted-foreground: oklch(0.725 0.02 255.564);
+  --destructive: oklch(0.652 0.167 17.173);
+  --destructive-foreground: oklch(0.17 0.012 242.529);
+  --input: oklch(0.238 0.01 248);
+
+  /* Primary - same base, formulas create darker variants */
+  --primary: oklch(0.718 0.165 159.015);
+  --primary-foreground: oklch(1 0 0);
+
+  /* Secondary - same base, formulas create appropriate variants */
+  --secondary: oklch(0.844 0.09 230.937);
+  --secondary-foreground: oklch(1 0 0);
+  /* Secondary scale automatically uses dark mode colors */
+
+  /* Accent - same base, formulas create appropriate variants */
+  --accent: oklch(0.75 0.15 280);
+  --accent-foreground: oklch(1 0 0);
+  /* Accent scale automatically uses dark mode colors */
+
+  /* Neutral color scale - inverted for dark mode */
+  --color-neutral-50: oklch(20.02% 0 0);
+  --color-neutral-100: oklch(22.64% 0 0);
+  --color-neutral-200: oklch(25.62% 0 0);
+  --color-neutral-300: oklch(27.68% 0 0);
+  --color-neutral-400: oklch(30.12% 0 0);
+  --color-neutral-500: oklch(32.5% 0 0);
+  --color-neutral-600: oklch(36.39% 0 0);
+  --color-neutral-700: oklch(43.13% 0 0);
+  --color-neutral-800: oklch(54.52% 0 0);
+  --color-neutral-900: oklch(59.31% 0 0);
+  --color-neutral-950: oklch(70.58% 0 0);
+  --color-neutral-1000: oklch(94.61% 0 0);
+
+  /* Functional colors */
+  --border: var(--color-neutral-300);
+  --ring: var(--primary);
+  --text-primary: var(--color-neutral-200);
+  --text-quaternary: oklch(94.61% 0 0);
+
+  /* Chart colors */
+  --chart-3: oklch(0.727 0.123 285.014);
+  --chart-4: oklch(0.818 0.139 334.347);
+  --chart-5: oklch(0.78 0.161 64.109);
+
+  /* Sidebar & UI variants */
+  --sidebar: oklch(0.17 0.012 242.529);
+  --sidebar-foreground: oklch(1 0 0);
+  --sidebar-primary-foreground: oklch(0.17 0.012 242.529);
+  --sidebar-border: var(--color-neutral-300);
+
+  /* Ring variants */
+  --ring-strong: oklch(0.65 0.165 159.015);
+  --ring-subtle: oklch(0.78 0.055 159.015);
+
+  /* Button styling - dark mode */
+  --btn-primary-bg-hover: oklch(from var(--primary) calc(l - 0.02) c h);
+  --btn-primary-bg-pressed: oklch(from var(--primary) calc(l - 0.06) c h);
+
+  /* Chip styling - dark mode */
+  --chip-bg: oklch(0.268 0.021 248.622);
+  --chip-fg: oklch(0.914 0.006 239.826);
+  --chip-bg-hover: oklch(0.3 0.021 248.622);
+
+  /* Shadow color */
+  --shadow-color: #000000;
+
+  /* Suggestion/tooltip - dark mode */
+  --suggestion-bg: #1f2937;
+  --suggestion-text: #d1d5db;
+  --suggestion-border: #374151;
+  --suggestion-shadow:
+    0 4px 8px -2px var(--primary-glow-subtle), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  --suggestion-shadow-hover:
+    0 10px 20px -5px var(--primary-glow-light),
+    0 4px 10px -3px var(--primary-glow-subtle), 0 0 0 1px var(--primary-glow-subtle);
+  --suggestion-border-hover: var(--primary);
+  --suggestion-text-hover: var(--primary);
+
+  /* Tab container - dark mode */
+  --tab-container-border: var(--color-neutral-300);
+  --tab-container-shadow:
+    0 4px 8px -2px var(--primary-glow-subtle), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  --tab-container-shadow-hover:
+    0 12px 30px -5px var(--primary-glow-strong),
+    0 6px 15px -3px var(--primary-glow-light), 0 0 0 2px var(--primary-glow-light);
+}
+
+/* ============================================================================
+   TAILWIND THEME - DECLARES DESIGN TOKENS FOR UTILITY GENERATION
+   References the CSS variables defined above
+   ============================================================================ */
+
+@theme {
+  /* Typography */
+  --font-sans: "Nunito", system-ui, -apple-system, sans-serif;
+
+  /* Primary color scale */
+  --color-primary-50: var(--color-primary-50);
+  --color-primary-100: var(--color-primary-100);
+  --color-primary-200: var(--color-primary-200);
+  --color-primary-300: var(--color-primary-300);
+  --color-primary-400: var(--color-primary-400);
+  --color-primary-500: var(--color-primary-500);
+  --color-primary-600: var(--color-primary-600);
+  --color-primary-700: var(--color-primary-700);
+  --color-primary-800: var(--color-primary-800);
+  --color-primary-900: var(--color-primary-900);
+  --color-primary-950: var(--color-primary-950);
+
+  /* Secondary color scale */
+  --color-secondary-50: var(--color-secondary-50);
+  --color-secondary-100: var(--color-secondary-100);
+  --color-secondary-200: var(--color-secondary-200);
+  --color-secondary-300: var(--color-secondary-300);
+  --color-secondary-400: var(--color-secondary-400);
+  --color-secondary-500: var(--color-secondary-500);
+  --color-secondary-600: var(--color-secondary-600);
+  --color-secondary-700: var(--color-secondary-700);
+  --color-secondary-800: var(--color-secondary-800);
+  --color-secondary-900: var(--color-secondary-900);
+  --color-secondary-950: var(--color-secondary-950);
+
+  /* Accent color scale */
+  --color-accent-50: var(--color-accent-50);
+  --color-accent-100: var(--color-accent-100);
+  --color-accent-200: var(--color-accent-200);
+  --color-accent-300: var(--color-accent-300);
+  --color-accent-400: var(--color-accent-400);
+  --color-accent-500: var(--color-accent-500);
+  --color-accent-600: var(--color-accent-600);
+  --color-accent-700: var(--color-accent-700);
+  --color-accent-800: var(--color-accent-800);
+  --color-accent-900: var(--color-accent-900);
+  --color-accent-950: var(--color-accent-950);
+
+  /* Neutral color scale */
+  --color-neutral-50: var(--color-neutral-50);
+  --color-neutral-100: var(--color-neutral-100);
+  --color-neutral-200: var(--color-neutral-200);
+  --color-neutral-300: var(--color-neutral-300);
+  --color-neutral-400: var(--color-neutral-400);
+  --color-neutral-500: var(--color-neutral-500);
+  --color-neutral-600: var(--color-neutral-600);
+  --color-neutral-700: var(--color-neutral-700);
+  --color-neutral-800: var(--color-neutral-800);
+  --color-neutral-900: var(--color-neutral-900);
+  --color-neutral-950: var(--color-neutral-950);
+  --color-neutral-1000: var(--color-neutral-1000);
+
+  /* Semantic colors */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-wrapper: var(--wrapper);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Chart colors */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* Spacing/Radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.625rem;
+  --radius-xl: 0.7rem;
+}
+
+/* ============================================================================
+   KEYFRAME ANIMATIONS
+   ============================================================================ */
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ping {
+  75%,
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulseSubtle {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+/* ============================================================================
+   BASE STYLES
+   ============================================================================ */
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground font-semibold;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+  }
+
+  p, span, div {
+    @apply font-semibold;
+  }
+}

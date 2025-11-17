@@ -1,0 +1,21 @@
+{
+    "$schema": "https://opencode.ai/config.json",
+    "tui": {
+        "scroll_speed": 5
+    },
+    "mcp": {
+        "exa": {
+            "type": "remote",
+            "url": "https://mcp.exa.ai/mcp",
+            "enabled": true,
+            "headers": {
+                "Authorization": "Bearer EXA_API_KEY=b0ce5a6a-e031-4636-9a02-62a8e05876bc",
+                "--tools": "get_code_context_exa,web_search_exa,crawling"
+            }
+        },
+        "shadcn": {
+            "type": "local",
+            "command": ["npx", "shadcn@latest", "mcp"]
+        }
+    }
+}

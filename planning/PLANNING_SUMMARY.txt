@@ -1,0 +1,373 @@
+═══════════════════════════════════════════════════════════════════════════════
+  GROOVIE TYPESCRIPT REBUILD 2025 - PLANNING COMPLETE ✨
+═══════════════════════════════════════════════════════════════════════════════
+
+STATUS: ✅ READY FOR IMPLEMENTATION
+
+Five comprehensive planning documents have been created in /planning/:
+
+├─ 📋 README_REBUILD_PLAN.md (15 KB)
+│  └─ START HERE: Overview and document hierarchy
+│     • Why we're rebuilding
+│     • Tech stack at a glance
+│     • Document roadmap
+│     • Success criteria
+│
+├─ 🏗️  TYPESCRIPT_REBUILD_STRATEGY_2025.md (28 KB)
+│  └─ MAIN BLUEPRINT: Complete architectural strategy
+│     • Executive summary
+│     • Tech stack with rationale
+│     • Full project structure (directory tree)
+│     • Three mode specifications with tools & artifacts
+│     • Implementation phases (week-by-week)
+│     • Data flow & API architecture
+│     • Security & testing strategy
+│
+├─ ⚡ QUICK_START_GUIDE.md (14 KB)
+│  └─ PRACTICAL REFERENCE: Day-to-day development
+│     • 30-second overview
+│     • Quick decision tree
+│     • Week-by-week roadmap
+│     • File creation checklist (150+ tracked)
+│     • Dev commands
+│     • Common pitfalls
+│
+├─ 📚 COMPONENT_API_REFERENCE.md (18 KB)
+│  └─ TYPE DICTIONARY: All interfaces & schemas
+│     • Core types (User, Auth, Chat)
+│     • 6 artifact types with Zod schemas
+│     • Component prop interfaces
+│     • Hook signatures
+│     • API request/response types
+│     • Tool definitions
+│     • Usage examples
+│
+└─ ✅ IMPLEMENTATION_CHECKLIST.md (21 KB)
+   └─ PHASE-BY-PHASE TRACKING: 100+ checklist items
+      • Phase 1: Foundation (Bun, Next.js, auth)
+      • Phase 2: Reading Resource mode
+      • Phase 3: Teaching Assistant mode
+      • Phase 4: Magic Librarian mode
+      • Phase 5: Polish & Vercel deployment
+      • Testing procedures
+      • Success criteria
+
+═══════════════════════════════════════════════════════════════════════════════
+  THE THREE AI MODES (COMPLETELY ISOLATED)
+═══════════════════════════════════════════════════════════════════════════════
+
+1. 📖 READING RESOURCE (FREE)
+   Purpose: Quick, mom-friendly literacy answers
+   Flow: User Question → Exa Web Search → GPT-5-mini → Response + Follow-ups
+   Tech: Exa Search, GPT-5-mini, streaming
+   Artifacts: None (text-only)
+   Location: /api/modes/reading-resource, /reading-resource route
+
+2. 👩‍🏫 TEACHING ASSISTANT (PREMIUM)
+   Purpose: Structured lesson planning with activities
+   Flow: Request → KB Search → Masta Workflow → 4 Artifacts
+   Tech: Supabase KB, OpenAI Functions/Masta, streaming
+   Artifacts: Lesson Plans, Quick Wins, Activities, Assessments
+   Location: /api/modes/teaching-assistant, /teaching-assistant route
+
+3. ✨ MAGIC LIBRARIAN (PREMIUM)
+   Purpose: Interactive decodable books + phonics games
+   Flow A: Patterns → GPT-5 (text) + Gemini (images) → Decodable Books
+   Flow B: Game Type → Generate Game → Interactive Gameplay
+   Tech: Gemini 2.5 Flash, GPT-5, Motion/React, component games
+   Artifacts: Decodable Books, Phonics Games (4 game types)
+   Location: /api/modes/magic-librarian, /magic-librarian route
+
+═══════════════════════════════════════════════════════════════════════════════
+  PROJECT STRUCTURE
+═══════════════════════════════════════════════════════════════════════════════
+
+groovie-typescript/
+├── src/app/                    ← Next.js App Router
+│   ├── api/modes/              ← 3 mode-specific API endpoints
+│   ├── (authenticated)/        ← Protected routes
+│   └── page.tsx                ← Mode selector home
+│
+├── src/features/               ← Feature modules (vertical slices)
+│   ├── reading-resource/       ← ISOLATED: web search mode
+│   ├── teaching-assistant/     ← ISOLATED: lesson planning mode
+│   ├── magic-librarian/        ← ISOLATED: decodables + games mode
+│   ├── chat/                   ← Base chat UI
+│   ├── artifacts/              ← Artifact rendering (shared)
+│   └── auth/                   ← Shopify access control
+│
+└── src/shared/                 ← Cross-feature concerns
+    ├── components/             ← Shadcn/ui + animations
+    ├── hooks/                  ← Shared custom hooks
+    ├── lib/                    ← Utilities & validators
+    └── types/                  ← Global types
+
+KEY PRINCIPLE: Modes are completely isolated. Only import from shared/
+
+═══════════════════════════════════════════════════════════════════════════════
+  TECH STACK
+═══════════════════════════════════════════════════════════════════════════════
+
+Runtime         │ Bun
+Framework       │ Next.js 16 (App Router, streaming RSC)
+UI Framework    │ React 19
+Language        │ TypeScript 5 (strict mode)
+Styling         │ Tailwind CSS v4
+Components      │ Shadcn/ui (accessible, composable)
+Animations      │ Motion/React
+AI              │ AI SDK v6 (streaming, tools, type-safe)
+Web Search      │ Exa Search API (semantic search)
+Illustrations   │ Gemini 2.5 Flash (vision model)
+Data Validation │ Zod (runtime + TypeScript)
+Linting         │ Biome (fast, opinionated)
+Deployment      │ Vercel
+
+═══════════════════════════════════════════════════════════════════════════════
+  IMPLEMENTATION TIMELINE
+═══════════════════════════════════════════════════════════════════════════════
+
+WEEK 1 (Foundation)
+├─ Bun + Next.js 16 setup
+├─ TypeScript, Tailwind, Shadcn/ui config
+├─ Biome linting setup
+├─ Shopify access level integration
+├─ Authentication middleware
+└─ Mode selector UI
+   GOAL: Dev server runs, auth works, zero TypeScript errors
+   SUCCESS: ✅ bun run dev
+
+WEEK 2 (Reading Resource)
+├─ Web search tool (Exa API)
+├─ GPT-5-mini response distillation
+├─ Streaming chat interface
+├─ Follow-up question generation
+├─ Thinking animation display
+└─ Error handling
+   GOAL: Mode fully functional end-to-end
+   SUCCESS: ✅ Ask questions, get streaming responses with follow-ups
+
+WEEK 3 (Teaching Assistant)
+├─ Knowledge base search integration
+├─ Masta workflow integration (or OpenAI functions)
+├─ Lesson plan generation
+├─ 4 artifact types rendering
+│  ├─ Lesson Plans
+│  ├─ Quick Wins (5-min activities)
+│  ├─ Home Activities (detailed)
+│  └─ Assessment Rubrics
+├─ Progress tracking
+└─ Artifact streaming
+   GOAL: All artifacts generate and render correctly
+   SUCCESS: ✅ Generate lesson plans with all components
+
+WEEK 4 (Magic Librarian)
+├─ Decodable book generation
+├─ Gemini 2.5 Flash illustration integration
+├─ Decodable reader component (interactive pages)
+├─ Phonics game generation
+├─ Elkonin boxes component (reusable)
+├─ 4 game types implemented
+│  ├─ Elkonin boxes
+│  ├─ Word building
+│  ├─ Rhyme matching
+│  └─ Sound sorting
+├─ Motion animations
+└─ Score tracking
+   GOAL: Books and games fully playable
+   SUCCESS: ✅ Generate and play interactive books and games
+
+WEEK 5 (Polish & Deploy)
+├─ Comprehensive error handling
+├─ Loading states + skeletons
+├─ Mobile responsive design
+├─ Accessibility audit (WCAG 2.1 AA)
+├─ Performance optimization
+│  ├─ Code splitting
+│  ├─ Image optimization
+│  ├─ Lighthouse 90+ scores
+│  └─ <2s page load time
+├─ Final testing
+└─ Deploy to Vercel
+   GOAL: Production-ready app live
+   SUCCESS: ✅ All 3 modes working on Vercel, Lighthouse 90+
+
+═══════════════════════════════════════════════════════════════════════════════
+  WHAT'S NOT CHANGING
+═══════════════════════════════════════════════════════════════════════════════
+
+❌ Python FastAPI backend (stays as-is)
+❌ Supabase database schema (stays as-is)
+❌ Shopify integration (access levels already work)
+❌ Curriculum knowledge base (200+ lessons already ready)
+❌ Authentication infrastructure (Shopify handles it)
+
+✅ We're building a clean TypeScript frontend that consumes these systems
+
+═══════════════════════════════════════════════════════════════════════════════
+  SUCCESS CRITERIA
+═══════════════════════════════════════════════════════════════════════════════
+
+PHASE 1 ✅
+  □ bun run dev starts with zero errors
+  □ Auth middleware protects routes
+  □ Mode selector page renders
+  □ TypeScript strict mode passes
+
+PHASE 2 ✅
+  □ Chat interface fully functional
+  □ Web search returns results
+  □ Responses stream to UI
+  □ Follow-up questions generate
+  □ Thinking animation shows
+
+PHASE 3 ✅
+  □ Lesson plans generate end-to-end
+  □ All 4 artifact types render
+  □ Progress indicator shows
+  □ Streaming stable on slow connections
+
+PHASE 4 ✅
+  □ Decodable books generate + render
+  □ Books have page navigation
+  □ Phonics games are playable
+  □ Animations smooth
+  □ Score tracking works
+
+PHASE 5 ✅
+  □ All pages responsive
+  □ Lighthouse 90+ (all categories)
+  □ Zero console errors
+  □ Deployed to Vercel
+  □ All 3 modes working live
+
+═══════════════════════════════════════════════════════════════════════════════
+  KEY DECISIONS MADE
+═══════════════════════════════════════════════════════════════════════════════
+
+✅ Bun over Node.js         → Speed, built-in bundler, modern DX
+✅ Next.js 16 over Vite     → Streaming, RSC, Vercel native
+✅ React 19 over Preact     → Latest features, performance
+✅ TypeScript strict        → Catch errors early, better DX
+✅ Tailwind + Shadcn        → Atomic, accessible, DX
+✅ Vertical slice features  → Isolation, independent development
+✅ Zod everywhere          → Runtime + TypeScript safety
+✅ Biome not ESLint        → Faster, opinionated, less config
+✅ No monorepo yet         → Simpler now, integrate later
+✅ Only frontend rebuild   → Reuse existing backend + DB
+
+═══════════════════════════════════════════════════════════════════════════════
+  DOCUMENT READING ORDER
+═══════════════════════════════════════════════════════════════════════════════
+
+For Architecture Understanding:
+  1. README_REBUILD_PLAN.md (this context)
+  2. TYPESCRIPT_REBUILD_STRATEGY_2025.md (main blueprint)
+
+For Getting Started:
+  3. QUICK_START_GUIDE.md (practical steps)
+  4. Start Phase 1 of IMPLEMENTATION_CHECKLIST.md
+
+For Development:
+  5. Use COMPONENT_API_REFERENCE.md when building components
+  6. Use IMPLEMENTATION_CHECKLIST.md to track phase progress
+  7. Reference QUICK_START_GUIDE.md for commands/troubleshooting
+
+═══════════════════════════════════════════════════════════════════════════════
+  NEXT IMMEDIATE ACTIONS
+═══════════════════════════════════════════════════════════════════════════════
+
+TODAY:
+  □ Read README_REBUILD_PLAN.md (this document)
+  □ Read TYPESCRIPT_REBUILD_STRATEGY_2025.md (20-30 min)
+  □ Answer the 6 "Key Questions" in TYPESCRIPT_REBUILD_STRATEGY_2025.md
+  □ Create new Bun + Next.js 16 project
+
+THIS WEEK (Phase 1):
+  □ Follow IMPLEMENTATION_CHECKLIST.md Phase 1
+  □ Set up TypeScript strict mode
+  □ Configure Tailwind + Shadcn/ui
+  □ Implement auth middleware
+  □ Build mode selector UI
+  □ Goal: bun run dev works with zero errors
+
+═══════════════════════════════════════════════════════════════════════════════
+  QUESTIONS TO ANSWER BEFORE STARTING
+═══════════════════════════════════════════════════════════════════════════════
+
+1. Masta Integration
+   - Is there a library/API to use?
+   - Or should we use OpenAI function calls for multi-step workflows?
+
+2. Knowledge Base
+   - Exact location? (Supabase vector tables?)
+   - Embedding model already set up?
+   - Search API available?
+
+3. Decodable Caching
+   - Generate fresh each time?
+   - Cache in browser localStorage?
+   - Cache server-side?
+
+4. Message Persistence
+   - Session-only conversations?
+   - Or persistent across days in Teaching Assistant/Magic Librarian?
+
+5. Premium Access Verification
+   - Call Shopify API per request?
+   - Cache in session?
+   - How long is cache valid?
+
+6. Error Handling
+   - Specific error codes to handle?
+   - Retry logic for API failures?
+   - Timeout values?
+
+═══════════════════════════════════════════════════════════════════════════════
+  EFFORT ESTIMATE
+═══════════════════════════════════════════════════════════════════════════════
+
+Phase 1 (Foundation)     → 3-5 days      (Low complexity)
+Phase 2 (Reading Res.)   → 3-5 days      (Medium complexity)
+Phase 3 (Teaching Asst.) → 4-6 days      (High complexity)
+Phase 4 (Magic Libr.)    → 4-6 days      (High complexity)
+Phase 5 (Polish)         → 2-3 days      (Medium complexity)
+────────────────────────────────────────────
+TOTAL                    → 16-25 days    (Medium overall)
+
+With 1 developer: ~5 weeks
+With 2 developers: ~3-4 weeks (parallel modes)
+
+Add 20% buffer for unexpected issues.
+
+═══════════════════════════════════════════════════════════════════════════════
+  QUICK REFERENCE
+═══════════════════════════════════════════════════════════════════════════════
+
+Architecture Q?          → TYPESCRIPT_REBUILD_STRATEGY_2025.md
+Starting project?        → QUICK_START_GUIDE.md
+Building a component?    → COMPONENT_API_REFERENCE.md
+On what step am I?       → IMPLEMENTATION_CHECKLIST.md
+Need overview?           → README_REBUILD_PLAN.md
+
+═══════════════════════════════════════════════════════════════════════════════
+  FINAL STATUS
+═══════════════════════════════════════════════════════════════════════════════
+
+✅ Strategy Complete:      All planning documents created
+✅ Tech Stack Decided:     Bun, Next.js 16, React 19, TypeScript
+✅ Architecture Designed:  Vertical slices, 3 isolated modes
+✅ Phases Planned:         Week-by-week breakdown ready
+✅ Checklist Ready:        100+ items per phase
+✅ Types Defined:          All schemas and interfaces documented
+✅ Success Criteria Set:   Clear goals for each phase
+
+STATUS: 🚀 READY FOR IMPLEMENTATION
+
+═══════════════════════════════════════════════════════════════════════════════
+
+Created: November 2025
+Documents: 5 comprehensive guides (96+ KB)
+Timeline: 16-25 days
+Next Step: Read TYPESCRIPT_REBUILD_STRATEGY_2025.md, then start Phase 1
+
+Good luck! Let's build something amazing! ✨
